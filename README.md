@@ -1,3 +1,16 @@
+# Collectd AutoConfigurador
+
+Para usar, simplesmente execute o arquivo `install.sh` seguido do nome do `servidor` no Graphite.
+
+Ex:. 
+./install.sh web-dapp
+
+# Como funciona?
+
+O collectd é um coletor de estatísticas do sistema para o Graphite. Ele envia as estatísticas da máquina para o graphite, e elas são coletadas pelo grafana por ele para mostrar gráficos incríveis!
+
+---
+
 # Collectd AutoConfig
 
 To use, simply execute the file `install.sh` followed by the desired `machine_name` on Graphite.
