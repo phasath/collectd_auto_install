@@ -52,7 +52,7 @@ function updating_packages {
 function dependencies_install {
 	echo "---> Installing necessaries dependencies"
 	echo "-----> Collectd and Dependencies"
-	eval "sudo $DISTRO_PKG_MAN -q install collectd collectd-utils collectd-core collectd-ping liboping0"
+	eval "sudo $DISTRO_PKG_MAN -q install collectd collectd-utils collectd-core collectd-ping liboping0 collectd-nginx"
 }
 
 function configuring_collectd {
