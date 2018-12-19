@@ -5,7 +5,7 @@ DISTRO_PKG_MAN=''
 MACHINE_NAME=$1
 TMP_PATH=$(mktemp -d)
 
-trap "{ rm -f $TMP_PATH; }" EXIT
+trap "{ rm -rf $TMP_PATH; }" EXIT
 
 function getting_distro_info {
 	if [[ "$DISTRO" == *"Ubuntu"* ]]; then
@@ -53,7 +53,7 @@ function configuring_collectd {
 	echo "-----> Creating log path for Collectd in /var/log/collectd"
 	eval "sudo mkdir -p /var/log/collectd"
 	echo "-----> Starting Collectd"
-	eval "sudo service collectd -C ${INSTALL_DIR}/collectd.conf"
+	eval "sudo collectd -C ${INSTALL_DIR}/collectd.conf"
 }
 
 getting_distro_info
