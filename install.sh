@@ -8,13 +8,13 @@ TMP_PATH=$(mktemp -d)
 trap "{ rm -f $TMP_PATH; }" EXIT
 
 function getting_distro_info {
-	if [[ "$DISTRO" == "Ubuntu" ]]; then
+	if [[ "$DISTRO" == *"Ubuntu"* ]]; then
 		INSTALL_DIR='/etc/collectd'
 		DISTRO_PKG_MAN='apt-get'
-	elif [[ "$DISTRO" == "CentOS" ]]; then
+	elif [[ "$DISTRO" == *"CentOS"* ]]; then
 		INSTALL_DIR='/etc/collectd.d'
 		DISTRO_PKG_MAN='yum'
-	elif [[ "$DISTRO" == "Oracle" ]]; then
+	elif [[ "$DISTRO" == *"Oracle"* ]]; then
 		INSTALL_DIR='/etc/collectd.d'
 		DISTRO_PKG_MAN='yum'
 	else 
