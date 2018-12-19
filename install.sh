@@ -36,13 +36,13 @@ function starting_text {
 
 function updating_packages {
 	echo "---> Updating package lists"
-	eval "sudo $DISTRO_PKG_MAN update"
+	eval "sudo $DISTRO_PKG_MAN -q update"
 }
 
 function dependencies_install {
 	echo "---> Installing necessaries dependencies"
 	echo "-----> Collectd and Dependencies"
-	eval "sudo $DISTRO_PKG_MAN install collectd collectd-utils collectd-core collectd-ping liboping0"
+	eval "sudo $DISTRO_PKG_MAN -q install collectd collectd-utils collectd-core collectd-ping liboping0"
 }
 
 function configuring_collectd {
