@@ -78,11 +78,11 @@ LoadPlugin write_graphite
 
 <Plugin write_graphite>
 	<Carbon>
-		Host "172.16.4.71"
+		Host "{GRAPHITE_IP}"
         Port "2003"
 		Prefix "collectd."
 		Protocol "tcp"
 	</Carbon>
 </Plugin>
 
-Include "{INSTALL_DIR}/*.conf"
+Include "{COLLECTD_DIR}/*.conf"
