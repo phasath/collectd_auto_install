@@ -5,6 +5,12 @@ DISTRO_PKG_MAN=''
 MACHINE_NAME=$1
 TMP_PATH=$(mktemp -d)
 
+if [ -z $2 ]; then
+	GRAPHITE_IP='10.60.0.27'
+else
+	GRAPHITE_IP=$2
+fi
+
 trap "{ rm -rf $TMP_PATH; }" EXIT
 
 function getting_distro_info {
