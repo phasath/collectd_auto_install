@@ -1,0 +1,88 @@
+Hostname {MACHINE_NAME}
+FQDNLookup true
+Interval 10
+
+LoadPlugin logfile
+LoadPlugin syslog
+
+<Plugin logfile>
+	LogLevel "info"
+	File "/var/log/collectd/log.log"
+	Timestamp true
+	PrintSeverity false
+</Plugin>
+
+<Plugin syslog>
+	LogLevel info
+</Plugin>
+
+LoadPlugin aggregation 
+LoadPlugin battery
+LoadPlugin cpu
+LoadPlugin df
+LoadPlugin disk
+LoadPlugin entropy
+#LoadPlugin filecount 
+LoadPlugin interface
+LoadPlugin load
+LoadPlugin memory
+LoadPlugin network
+LoadPlugin nginx
+LoadPlugin ping
+LoadPlugin processes
+LoadPlugin swap
+LoadPlugin tail
+LoadPlugin uptime
+LoadPlugin users
+LoadPlugin write_graphite
+
+<Plugin df>
+  MountPoint "/"
+
+  IgnoreSelected false
+  ReportByDevice true
+  #ReportReserved false
+  ReportInodes true
+  ValuesAbsolute true
+  ValuesPercentage true
+  ReportInodes true
+</Plugin>
+
+<Plugin "disk">
+  Disk "/^(dev/)?[hs]d[a-z]/"
+  IgnoreSelected false
+</Plugin>
+
+<Plugin "aggregation">
+  <Aggregation>
+    Plugin "cpu"
+    Type "cpu"
+    GroupBy "Host"
+    GroupBy "TypeInstance"
+    CalculateAverage true
+    CalculateSum true
+    CalculateNum true
+  </Aggregation>
+</Plugin>
+
+<Plugin "cpu">
+  ValuesPercentage false
+  ReportByCpu true
+</Plugin>
+
+<Plugin nginx>
+	URL "http://localhost/nginx_status?auto"
+	VerifyPeer false
+	VerifyHost false
+</Plugin>
+
+<Plugin write_graphite>
+	<Carbon>
+		Host "172.16.4.71"
+        Port "2003"
+		Prefix "collectd."
+		Protocol "tcp"
+	</Carbon>
+</Plugin>
+
+Include "{INSTALL_DIR}/*.conf"
