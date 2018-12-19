@@ -54,7 +54,7 @@ function dependencies_install {
 function configuring_collectd {
 	echo "-----> Configuring Collectd"
 	eval "cp ${PWD}/collectd/collectd.tmpl ${TMP_PATH}/collectd.conf"
-	sed -i -e "s@{MACHINE_NAME}@${MACHINE_NAME}@" -e "s@{INSTALL_DIR}@${INSTALL_DIR}@" ${TMP_PATH}/collectd.conf 
+	sed -i -e "s@{MACHINE_NAME}@${MACHINE_NAME}@" -e "s@{INSTALL_DIR}@${INSTALL_DIR}@" -e "s@{GRAPHITE_IP}@${GRAPHITE_IP}@" ${TMP_PATH}/collectd.conf 
 	eval "sudo cp --force ${TMP_PATH}/collectd.conf ${INSTALL_DIR}/"
 	echo "-----> Creating log path for Collectd in /var/log/collectd"
 	eval "sudo mkdir -p /var/log/collectd"
