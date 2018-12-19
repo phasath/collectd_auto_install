@@ -1,6 +1,7 @@
 DISTRO=$(cat /etc/*-release | grep -w NAME | cut -d= -f2 | tr -d '"')
 SOURCE_DIR=$(pwd)/collectd
 INSTALL_DIR=''
+COLLECTD_DIR=''
 DISTRO_PKG_MAN=''
 MACHINE_NAME=$1
 TMP_PATH=$(mktemp -d)
@@ -16,12 +17,15 @@ trap "{ rm -rf $TMP_PATH; }" EXIT
 function getting_distro_info {
 	if [[ "$DISTRO" == *"Ubuntu"* ]]; then
 		INSTALL_DIR='/etc/collectd'
+		COLLECTD_DIR='/etc/collectd/collectd.conf.d'
 		DISTRO_PKG_MAN='apt-get'
 	elif [[ "$DISTRO" == *"CentOS"* ]]; then
-		INSTALL_DIR='/etc/collectd.d'
+		INSTALL_DIR='/etc'
+		COLLECTD_DIR='/etc/collectd'
 		DISTRO_PKG_MAN='yum'
 	elif [[ "$DISTRO" == *"Oracle"* ]]; then
-		INSTALL_DIR='/etc/collectd.d'
+		INSTALL_DIR='/etc'
+		COLLECTD_DIR='/etc/collectd.d'
 		DISTRO_PKG_MAN='yum'
 	else 
 		echo "No OS detected"
@@ -54,7 +58,7 @@ function dependencies_install {
 function configuring_collectd {
 	echo "-----> Configuring Collectd"
 	eval "cp ${PWD}/collectd/collectd.tmpl ${TMP_PATH}/collectd.conf"
-	sed -i -e "s@{MACHINE_NAME}@${MACHINE_NAME}@" -e "s@{INSTALL_DIR}@${INSTALL_DIR}@" -e "s@{GRAPHITE_IP}@${GRAPHITE_IP}@" ${TMP_PATH}/collectd.conf 
+	sed -i -e "s@{MACHINE_NAME}@${MACHINE_NAME}@" -e "s@{COLLECTD_DIR}@${COLLECTD_DIR}@" -e "s@{GRAPHITE_IP}@${GRAPHITE_IP}@" ${TMP_PATH}/collectd.conf 
 	eval "sudo cp --force ${TMP_PATH}/collectd.conf ${INSTALL_DIR}/"
 	echo "-----> Creating log path for Collectd in /var/log/collectd"
 	eval "sudo mkdir -p /var/log/collectd"
