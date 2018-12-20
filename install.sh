@@ -63,7 +63,7 @@ function updating_packages {
 function dependencies_install {
 	echo "---> Installing necessary dependencies"
 	echo "-----> Collectd and Dependencies"
-	eval "sudo $DISTRO_PKG_MAN install collectd collectd-utils collectd-core collectd-ping liboping0 collectd-nginx"
+	eval "sudo $DISTRO_PKG_MAN install collectd collectd-utils collectd-core"
 	if [ $? -ne 0 ]; then
     	show_error "installing necessary dependencies."
 	fi
