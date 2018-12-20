@@ -19,6 +19,7 @@ function getting_distro_info {
 		INSTALL_DIR='/etc/collectd'
 		COLLECTD_DIR='/etc/collectd/collectd.conf.d'
 		DISTRO_PKG_MAN='apt-get -mfy'
+	elif [[ "$DISTRO" == *"CentOS"* ]] || [[ "$DISTRO" == *"Oracle"* ]]; then
 		INSTALL_DIR='/etc'
 		COLLECTD_DIR='/etc/collectd.d'
 		DISTRO_PKG_MAN='yum -qy'
