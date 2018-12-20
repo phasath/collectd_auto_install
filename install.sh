@@ -65,7 +65,7 @@ function dependencies_install {
 	echo "-----> Collectd and Dependencies"
 	eval "sudo $DISTRO_PKG_MAN install collectd collectd-utils collectd-core collectd-ping liboping0 collectd-nginx"
 	if [ $? -ne 0 ]; then
-    	show_error "instlaling necessary dependencies."
+    	show_error "installing necessary dependencies."
 	fi
 }
 
