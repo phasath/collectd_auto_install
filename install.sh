@@ -6,7 +6,7 @@ DISTRO_PKG_MAN=''
 MACHINE_NAME=$1
 
 TMP_PATH=$(mktemp -d)
-if [ $? -eq 0 ]; then
+if [ $? -ne 0 ]; then
    	show_error "while creating temporary path."
 fi
 
@@ -55,7 +55,7 @@ function starting_text {
 function updating_packages {
 	echo "---> Updating package lists"
 	eval "sudo $DISTRO_PKG_MAN update"
-	if [ $? -eq 0 ]; then
+	if [ $? -ne 0 ]; then
     	show_error "updating package list."
 	fi
 }
@@ -64,7 +64,7 @@ function dependencies_install {
 	echo "---> Installing necessary dependencies"
 	echo "-----> Collectd and Dependencies"
 	eval "sudo $DISTRO_PKG_MAN install collectd collectd-utils collectd-core collectd-ping liboping0 collectd-nginx"
-	if [ $? -eq 0 ]; then
+	if [ $? -ne 0 ]; then
     	show_error "instlaling necessary dependencies."
 	fi
 }
@@ -73,29 +73,29 @@ function configuring_collectd {
 	echo "-----> Configuring Collectd"
 
 	eval "cp ${PWD}/collectd/collectd.tmpl ${TMP_PATH}/collectd.conf"
-	if [ $? -eq 0 ]; then
+	if [ $? -ne 0 ]; then
     	show_error "moving contents to temporary path."
 	fi
 
 	sed -i -e "s@{MACHINE_NAME}@${MACHINE_NAME}@" -e "s@{COLLECTD_DIR}@${COLLECTD_DIR}@" -e "s@{GRAPHITE_IP}@${GRAPHITE_IP}@" ${TMP_PATH}/collectd.conf 
-	if [ $? -eq 0 ]; then
+	if [ $? -ne 0 ]; then
     	show_error "creating collectd config file."
 	fi
 
 	eval "sudo cp --force ${TMP_PATH}/collectd.conf ${INSTALL_DIR}/"
-	if [ $? -eq 0 ]; then
+	if [ $? -ne 0 ]; then
     	show_error "copying collectd configuration file."
 	fi
 	
 	echo "-----> Creating log path for Collectd in /var/log/collectd"
 	eval "sudo mkdir -p /var/log/collectd"
-	if [ $? -eq 0 ]; then
+	if [ $? -ne 0 ]; then
     	show_error "creating log path for collectd."
 	fi
 
 	echo "-----> Starting Collectd"
 	eval "sudo collectd -C ${INSTALL_DIR}/collectd.conf"
-	if [ $? -eq 0 ]; then
+	if [ $? -ne 0 ]; then
     	show_error "starting collectd."
 	fi
 }
