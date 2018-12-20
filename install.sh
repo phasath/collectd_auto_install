@@ -18,15 +18,10 @@ function getting_distro_info {
 	if [[ "$DISTRO" == *"Ubuntu"* ]]; then
 		INSTALL_DIR='/etc/collectd'
 		COLLECTD_DIR='/etc/collectd/collectd.conf.d'
-		DISTRO_PKG_MAN='apt-get'
-	elif [[ "$DISTRO" == *"CentOS"* ]]; then
+		DISTRO_PKG_MAN='apt-get -mfy'
 		INSTALL_DIR='/etc'
 		COLLECTD_DIR='/etc/collectd.d'
-		DISTRO_PKG_MAN='yum'
-	elif [[ "$DISTRO" == *"Oracle"* ]]; then
-		INSTALL_DIR='/etc'
-		COLLECTD_DIR='/etc/collectd.d'
-		DISTRO_PKG_MAN='yum'
+		DISTRO_PKG_MAN='yum -qy'
 	else 
 		echo "No OS detected"
 		echo "Aborting..."
@@ -46,13 +41,13 @@ function starting_text {
 
 function updating_packages {
 	echo "---> Updating package lists"
-	eval "sudo $DISTRO_PKG_MAN -q update"
+	eval "sudo $DISTRO_PKG_MAN update"
 }
 
 function dependencies_install {
 	echo "---> Installing necessaries dependencies"
 	echo "-----> Collectd and Dependencies"
-	eval "sudo $DISTRO_PKG_MAN -q install collectd collectd-utils collectd-core collectd-ping liboping0 collectd-nginx"
+	eval "sudo $DISTRO_PKG_MAN install collectd collectd-utils collectd-core collectd-ping liboping0 collectd-nginx"
 }
 
 function configuring_collectd {
