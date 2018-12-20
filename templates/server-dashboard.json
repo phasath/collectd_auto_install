@@ -12,7 +12,7 @@
       "name": "VAR_SERVER",
       "type": "constant",
       "label": "Server",
-      "value": "",
+      "value": "DAPP001",
       "description": ""
     }
   ],
@@ -40,12 +40,6 @@
       "id": "singlestat",
       "name": "Singlestat",
       "version": "5.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "text",
-      "name": "Text",
-      "version": "5.0.0"
     }
   ],
   "annotations": {
@@ -66,31 +60,16 @@
   "gnetId": 203,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1545310309161,
+  "iteration": 1545323221393,
   "links": [],
   "panels": [
-    {
-      "content": "<div style=\"text-align: center; font-size: 60px;\"> Banco de Processamento </div>",
-      "gridPos": {
-        "h": 3,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 33,
-      "links": [],
-      "mode": "html",
-      "title": "",
-      "transparent": true,
-      "type": "text"
-    },
     {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 3
+        "y": 0
       },
       "id": 23,
       "panels": [],
@@ -120,7 +99,7 @@
         "h": 5,
         "w": 8,
         "x": 0,
-        "y": 4
+        "y": 1
       },
       "id": 25,
       "interval": null,
@@ -202,7 +181,7 @@
         "h": 5,
         "w": 8,
         "x": 8,
-        "y": 4
+        "y": 1
       },
       "id": 26,
       "interval": null,
@@ -284,7 +263,7 @@
         "h": 5,
         "w": 8,
         "x": 16,
-        "y": 4
+        "y": 1
       },
       "id": 27,
       "interval": null,
@@ -364,7 +343,7 @@
         "h": 2,
         "w": 8,
         "x": 0,
-        "y": 9
+        "y": 6
       },
       "id": 31,
       "interval": null,
@@ -443,7 +422,7 @@
         "h": 2,
         "w": 8,
         "x": 8,
-        "y": 9
+        "y": 6
       },
       "id": 29,
       "interval": null,
@@ -528,7 +507,7 @@
         "h": 2,
         "w": 8,
         "x": 16,
-        "y": 9
+        "y": 6
       },
       "id": 30,
       "interval": null,
@@ -594,7 +573,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 11
+        "y": 8
       },
       "id": 15,
       "panels": [],
@@ -625,7 +604,7 @@
         "h": 3,
         "w": 6,
         "x": 0,
-        "y": 12
+        "y": 9
       },
       "id": 1,
       "interval": null,
@@ -705,7 +684,7 @@
         "h": 3,
         "w": 6,
         "x": 6,
-        "y": 12
+        "y": 9
       },
       "id": 2,
       "interval": null,
@@ -786,7 +765,7 @@
         "h": 3,
         "w": 6,
         "x": 12,
-        "y": 12
+        "y": 9
       },
       "id": 3,
       "interval": null,
@@ -867,7 +846,7 @@
         "h": 3,
         "w": 6,
         "x": 18,
-        "y": 12
+        "y": 9
       },
       "id": 14,
       "interval": null,
@@ -930,7 +909,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 15
+        "y": 12
       },
       "id": 17,
       "panels": [],
@@ -951,7 +930,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 16
+        "y": 13
       },
       "id": 10,
       "legend": {
@@ -1171,7 +1150,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 16
+        "y": 13
       },
       "id": 4,
       "legend": {
@@ -1287,7 +1266,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 21
       },
       "id": 18,
       "panels": [],
@@ -1309,7 +1288,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 25
+        "y": 22
       },
       "id": 5,
       "legend": {
@@ -1403,7 +1382,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 25
+        "y": 22
       },
       "id": 21,
       "legend": {
@@ -1496,7 +1475,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 34
+        "y": 31
       },
       "id": 6,
       "legend": {
@@ -1590,7 +1569,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 41
+        "y": 38
       },
       "id": 19,
       "panels": [],
@@ -1612,7 +1591,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 42
+        "y": 39
       },
       "id": 7,
       "legend": {
@@ -1734,7 +1713,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 42
+        "y": 39
       },
       "id": 9,
       "legend": {
@@ -1880,5 +1859,5 @@
     "type": "timepicker"
   },
   "timezone": "browser",
-  "version": 6
+  "version": 3
 }
