@@ -67,6 +67,11 @@ function dependencies_install {
 	if [ $? -ne 0 ]; then
     	show_error "installing necessary dependencies."
 	fi
+	echo "-----> Collectd plugins"
+	eval "sudo $DISTRO_PKG_MAN install collectd-ping liboping0 collectd-nginx"
+	if [ $? -ne 0 ]; then
+    	echo "-----> Could not install collectd plugins. Moving forward. <-----"
+	fi
 }
 
 function configuring_collectd {
