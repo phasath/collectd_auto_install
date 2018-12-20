@@ -12,7 +12,7 @@
       "name": "VAR_SERVER",
       "type": "constant",
       "label": "Server",
-      "value": "hmlgweb",
+      "value": "",
       "description": ""
     }
   ],
@@ -40,6 +40,12 @@
       "id": "singlestat",
       "name": "Singlestat",
       "version": "5.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": "5.0.0"
     }
   ],
   "annotations": {
@@ -60,16 +66,31 @@
   "gnetId": 203,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1545230223879,
+  "iteration": 1545310309161,
   "links": [],
   "panels": [
+    {
+      "content": "<div style=\"text-align: center; font-size: 60px;\"> Banco de Processamento </div>",
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 33,
+      "links": [],
+      "mode": "html",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
     {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 3
       },
       "id": 23,
       "panels": [],
@@ -99,7 +120,7 @@
         "h": 5,
         "w": 8,
         "x": 0,
-        "y": 1
+        "y": 4
       },
       "id": 25,
       "interval": null,
@@ -181,7 +202,7 @@
         "h": 5,
         "w": 8,
         "x": 8,
-        "y": 1
+        "y": 4
       },
       "id": 26,
       "interval": null,
@@ -263,7 +284,7 @@
         "h": 5,
         "w": 8,
         "x": 16,
-        "y": 1
+        "y": 4
       },
       "id": 27,
       "interval": null,
@@ -303,7 +324,7 @@
       "targets": [
         {
           "refId": "A",
-          "target": "alias(asPercent(sumSeries(collectd.$Server.df-*.df_complex-used), sumSeries(collectd.$Server.df-*.df_complex-*)), \"Disk Used\")",
+          "target": "alias(asPercent(sumSeries(collectd.$Server.df-{sd*,mapp*}.df_complex-used), sumSeries(collectd.$Server.df-{sd*,mapp*}.df_complex-*)), \"Disk Used\")",
           "textEditor": true
         }
       ],
@@ -343,7 +364,7 @@
         "h": 2,
         "w": 8,
         "x": 0,
-        "y": 6
+        "y": 9
       },
       "id": 31,
       "interval": null,
@@ -422,7 +443,7 @@
         "h": 2,
         "w": 8,
         "x": 8,
-        "y": 6
+        "y": 9
       },
       "id": 29,
       "interval": null,
@@ -507,7 +528,7 @@
         "h": 2,
         "w": 8,
         "x": 16,
-        "y": 6
+        "y": 9
       },
       "id": 30,
       "interval": null,
@@ -548,7 +569,7 @@
         {
           "refCount": 0,
           "refId": "A",
-          "target": "sumSeries(collectd.$Server.df-mapper_centos*-{root,home}.df_complex-{used,reserved,free})",
+          "target": "sumSeries(collectd.$Server.df-{sd*,mapp*}.df_complex-{used,reserved,free})",
           "textEditor": true
         }
       ],
@@ -573,7 +594,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 11
       },
       "id": 15,
       "panels": [],
@@ -604,7 +625,7 @@
         "h": 3,
         "w": 6,
         "x": 0,
-        "y": 9
+        "y": 12
       },
       "id": 1,
       "interval": null,
@@ -684,7 +705,7 @@
         "h": 3,
         "w": 6,
         "x": 6,
-        "y": 9
+        "y": 12
       },
       "id": 2,
       "interval": null,
@@ -765,7 +786,7 @@
         "h": 3,
         "w": 6,
         "x": 12,
-        "y": 9
+        "y": 12
       },
       "id": 3,
       "interval": null,
@@ -846,7 +867,7 @@
         "h": 3,
         "w": 6,
         "x": 18,
-        "y": 9
+        "y": 12
       },
       "id": 14,
       "interval": null,
@@ -909,7 +930,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 15
       },
       "id": 17,
       "panels": [],
@@ -930,7 +951,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 13
+        "y": 16
       },
       "id": 10,
       "legend": {
@@ -1150,7 +1171,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 13
+        "y": 16
       },
       "id": 4,
       "legend": {
@@ -1266,7 +1287,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 24
       },
       "id": 18,
       "panels": [],
@@ -1288,7 +1309,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 22
+        "y": 25
       },
       "id": 5,
       "legend": {
@@ -1382,7 +1403,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 22
+        "y": 25
       },
       "id": 21,
       "legend": {
@@ -1475,7 +1496,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 31
+        "y": 34
       },
       "id": 6,
       "legend": {
@@ -1569,7 +1590,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 38
+        "y": 41
       },
       "id": 19,
       "panels": [],
@@ -1591,7 +1612,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 39
+        "y": 42
       },
       "id": 7,
       "legend": {
@@ -1713,7 +1734,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 39
+        "y": 42
       },
       "id": 9,
       "legend": {
@@ -1798,9 +1819,7 @@
   "refresh": "5m",
   "schemaVersion": 16,
   "style": "dark",
-  "tags": [
-    "academica"
-  ],
+  "tags": [],
   "templating": {
     "list": [
       {
@@ -1861,5 +1880,5 @@
     "type": "timepicker"
   },
   "timezone": "browser",
-  "version": 5
+  "version": 6
 }
