@@ -30,7 +30,7 @@ function getting_distro_info {
 	if [[ "$DISTRO" == *"Ubuntu"* ]]; then
 		INSTALL_DIR='/etc/collectd'
 		COLLECTD_DIR='/etc/collectd/collectd.conf.d'
-		DISTRO_PKG_MAN='apt-get -m -f -y'
+		DISTRO_PKG_MAN='apt-get -m -y'
 	elif [[ "$DISTRO" == *"CentOS"* ]] || [[ "$DISTRO" == *"Oracle"* ]]; then
 		INSTALL_DIR='/etc'
 		COLLECTD_DIR='/etc/collectd.d'
