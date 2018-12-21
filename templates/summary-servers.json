@@ -53,7 +53,7 @@
   "gnetId": 203,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1545324567496,
+  "iteration": 1545328227403,
   "links": [],
   "panels": [
     {
@@ -114,9 +114,9 @@
       "interval": null,
       "links": [
         {
-          "dashboard": "PROD Carregamento de Dados",
+          "dashboard": "$Server",
           "targetBlank": false,
-          "title": "PROD Carregamento de Dados",
+          "title": "$Server",
           "type": "dashboard",
           "url": "/d/XMWJp4siz/prod-carregamento-de-dados"
         }
@@ -204,8 +204,8 @@
       "interval": null,
       "links": [
         {
-          "dashboard": "PROD Carregamento de Dados",
-          "title": "PROD Carregamento de Dados",
+          "dashboard": "$Server",
+          "title": "$Server",
           "type": "dashboard",
           "url": "/d/XMWJp4siz/prod-carregamento-de-dados"
         }
@@ -293,8 +293,8 @@
       "interval": null,
       "links": [
         {
-          "dashboard": "PROD Carregamento de Dados",
-          "title": "PROD Carregamento de Dados",
+          "dashboard": "$Server",
+          "title": "$Server",
           "type": "dashboard",
           "url": "/d/XMWJp4siz/prod-carregamento-de-dados"
         }
@@ -669,5 +669,5 @@
     "type": "timepicker"
   },
   "timezone": "browser",
-  "version": 13
+  "version": 19
 }
