@@ -45,7 +45,7 @@ function getting_distro_info {
 function starting_text {
 	clear
 	echo "**************************************"
-	echo "* Starting DAPP FGV Collectd Install *"
+	echo "*     Starting Collectd Install      *"
 	echo "**************************************"
 	echo ""
 	echo "-> $DISTRO Detected"
